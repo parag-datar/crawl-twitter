@@ -133,7 +133,7 @@
   
        <schemaFactory class="ClassicIndexSchemaFactory"/>
 
-       <!--When ManagedIndexSchemaFactory is specified instead, Solr will load the schema from
+    <!--When ManagedIndexSchemaFactory is specified instead, Solr will load the schema from
        the resource named in 'managedSchemaResourceName', rather than from schema.xml.
        Note that the managed schema resource CANNOT be named schema.xml.  If the managed
        schema does not exist, Solr will create it after reading schema.xml, then rename
@@ -146,10 +146,10 @@
        modification REST API calls will be allowed; otherwise, error responses will be
        sent back for these requests. 
   -->
-  <!--schemaFactory class="ManagedIndexSchemaFactory">
+ <!--schemaFactory class="ManagedIndexSchemaFactory">
     <bool name="mutable">true</bool>
     <str name="managedSchemaResourceName">managed-schema</str>
-  </schemaFactory-->
+  </schemaFactoryi-->
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        Index Config - These settings control low-level behavior of indexing
@@ -1348,7 +1348,6 @@
        See http://wiki.apache.org/solr/GuessingFieldTypes
     -->
   <updateRequestProcessorChain name="add-unknown-fields-to-the-schema">
-    <!-- UUIDUpdateProcessorFactory will generate an id if none is present in the incoming document -->
     <processor class="solr.UUIDUpdateProcessorFactory" />
 
     <processor class="solr.LogUpdateProcessorFactory"/>
@@ -1386,20 +1385,20 @@
       <str name="defaultFieldType">strings</str>
       <lst name="typeMapping">
         <str name="valueClass">java.lang.Boolean</str>
-        <str name="fieldType">booleans</str>
+        <str name="fieldType">boolean</str>
       </lst>
       <lst name="typeMapping">
         <str name="valueClass">java.util.Date</str>
-        <str name="fieldType">tdates</str>
+        <str name="fieldType">tdate</str>
       </lst>
       <lst name="typeMapping">
         <str name="valueClass">java.lang.Long</str>
         <str name="valueClass">java.lang.Integer</str>
-        <str name="fieldType">tlongs</str>
+        <str name="fieldType">tlong</str>
       </lst>
       <lst name="typeMapping">
         <str name="valueClass">java.lang.Number</str>
-        <str name="fieldType">tdoubles</str>
+        <str name="fieldType">tdouble</str>
       </lst>
     </processor-->
     <processor class="solr.RunUpdateProcessorFactory"/>
