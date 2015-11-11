@@ -131,7 +131,7 @@
 
   <!-- To disable dynamic schema REST APIs, use the following for <schemaFactory>:-->
   
-       <schemaFactory class="ClassicIndexSchemaFactory"/>
+    <schemaFactory class="ClassicIndexSchemaFactory"/>
 
     <!--When ManagedIndexSchemaFactory is specified instead, Solr will load the schema from
        the resource named in 'managedSchemaResourceName', rather than from schema.xml.
@@ -865,11 +865,15 @@
     </lst>
   </initParams>
 
+  
+  <!-- for now disabling the auto addition of fields in schema
   <initParams path="/update/**">
     <lst name="defaults">
       <str name="update.chain">add-unknown-fields-to-the-schema</str>
     </lst>
   </initParams>
+  -->
+
 
   <!-- Solr Cell Update Request Handler
 
@@ -1347,6 +1351,8 @@
        
        See http://wiki.apache.org/solr/GuessingFieldTypes
     -->
+  
+  <!--
   <updateRequestProcessorChain name="add-unknown-fields-to-the-schema">
     <processor class="solr.UUIDUpdateProcessorFactory" />
 
@@ -1381,7 +1387,7 @@
         <str>yyyy-MM-dd</str>
       </arr>
     </processor>
-    <!--processor class="solr.AddSchemaFieldsUpdateProcessorFactory">
+    <processor class="solr.AddSchemaFieldsUpdateProcessorFactory">
       <str name="defaultFieldType">strings</str>
       <lst name="typeMapping">
         <str name="valueClass">java.lang.Boolean</str>
@@ -1400,9 +1406,10 @@
         <str name="valueClass">java.lang.Number</str>
         <str name="fieldType">tdouble</str>
       </lst>
-    </processor-->
+    </processor>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
+  -->
 
   <!-- Deduplication
 

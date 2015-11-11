@@ -361,9 +361,17 @@
   <fieldType name="tints" class="solr.TrieIntField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
   <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" positionIncrementGap="0"/>
   <fieldType name="tlongs" class="solr.TrieLongField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
+  
+
   <field name="_root_" type="string" indexed="true" stored="false"/>
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="true" stored="true"/>
+  
+
+  <!-- dyamic fields not required in this project-->
+  <!--
+  
+
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="true"/>
   <dynamicField name="*_ancestor_path" type="ancestor_path" indexed="true" stored="true"/>
@@ -437,7 +445,12 @@
   <dynamicField name="*_d" type="double" indexed="true" stored="true"/>
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
   <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
+ 
+  -->
+ 
+  <!-- for copying all the fields to the _text_ field-->
   <copyField source="*" dest="_text_"/>
+
 
   <!-- sarang Tweet Index Specific Fields-->
   <field name="created_at" type="tdate"/>
@@ -512,4 +525,15 @@
     </analyzer>
   </fieldType>
 
+   <!-- Similarity is the scoring routine for each document vs. a query.
+       A custom Similarity or SimilarityFactory may be specified here, but 
+       the default is fine for most applications.  
+       For more info: http://wiki.apache.org/solr/SchemaXml#Similarity
+    -->
+  
+   <!--similarity class="solr.BM25SimilarityFactory">
+       <str name="paramkey">param value</str>
+   </similarity-->
+    
+ 
 </schema>
