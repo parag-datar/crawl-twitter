@@ -449,7 +449,7 @@
   -->
  
   <!-- for copying all the fields to the _text_ field-->
-  <!--copyField source="*" dest="_text_"/-->
+  <copyField source="*" dest="_text_"/>
 
 
   <!-- sarang Tweet Index Specific Fields-->
