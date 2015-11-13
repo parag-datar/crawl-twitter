@@ -1,0 +1,5 @@
+/home/parag7777/solr/solr-5.3.0/bin/solr restart
+echo "Reindexing Solr"
+curl http://parag7777.koding.io:8983/solr/tweetindex/update?commit=true -d '<delete><query>*:*</query></delete>'
+/home/parag7777/solr/solr-5.3.0/bin/post -c tweetindex /home/parag7777/solr/solr-5.3.0/server/solr/twitter-search/part-b-tweets/train.json
+echo "Reindexing Complete"
