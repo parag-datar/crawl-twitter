@@ -30,3 +30,7 @@ ammunition,munition,ammo
 russia,russland
 wirft,drop,dropped
 
+russia,Россия,Russland
+russia's,Россия -х,Russlands
+intervention,вмешательство
+syria,Сирия,Syrien
