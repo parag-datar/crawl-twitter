@@ -27,3 +27,7 @@ Television, Televisions, TV, TVs
 # Synonym mappings can be used for spelling correction too
 pixima => pixma
 
+russia,Россия,Russland
+russia's,Россия -х,Russlands
+intervention,вмешательство
+syria,Сирия,Syrien

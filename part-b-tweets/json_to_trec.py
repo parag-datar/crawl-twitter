@@ -11,11 +11,11 @@ import urllib2
 
 
 # change the url according to your own koding username and query
-inurl = 'http://parag7777.koding.io:8983/solr/tweetindex/select?q=text_en%3AUS+air+dropped+50+tons+of+Ammo+on+Syria&rows=1000&fl=id%2Cscore&wt=json&indent=true'
+inurl = 'http://parag7777.koding.io:8983/solr/tweetindex/select?q=text_en%3ARussia%27s+intervention+in+Syria&rows=1000&fl=id%2Cscore&wt=json&indent=true'
 outfn = 'output.txt'
 
 
-qid = '002'
+qid = '001'
 IRModel='default'
 outf = open(outfn, 'w+')
 data = urllib2.urlopen(inurl)
