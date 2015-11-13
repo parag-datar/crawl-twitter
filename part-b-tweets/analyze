@@ -1,0 +1,4 @@
+python json_to_trec.py
+rm -rf $1.txt
+./trec_eval -q  qrel.txt output.txt >> $1.txt
+grep inurl json_to_trec.py |head -n 1 >> $1.txt 
