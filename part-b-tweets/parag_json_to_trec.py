@@ -12,7 +12,7 @@ import urllib2
 import codecs
 
 content=[]
-myFile = codecs.open("part-b-tweets\queries.txt",encoding='utf-8')
+myFile = codecs.open("queries.txt",encoding='utf-8')
 for line in myFile:
     content.append(line)
 
@@ -20,6 +20,8 @@ import detectlanguage
 
 detectlanguage.configuration.api_key = "0b56398dc06929d4f027ab5c95d5a025"
 
+outfn = 'output.txt'
+outf = open(outfn, 'a+')
 
 for string in content:
     qid = string[0:3:1]
@@ -40,11 +42,9 @@ for string in content:
     inurl = u"http://parag7777.koding.io:8983/solr/tweetindex/select?q="+text_field+":"+urllib2.quote(queryArr.encode('UTF-8'),safe='')+u"&fl=id%2Cscore&wt=json&indent=true&rows=1000"
     #inurl = u"http://parag7777.koding.io:8983/solr/tweetindex/select?q="+urllib2.quote(queryArr.encode('UTF-8'),safe='')+u"&fl=id%2Cscore&wt=json&indent=true&rows=1000"
     #outfn = 'output.txt'
-    outfn = 'output.txt'
 # change query id and IRModel name accordingly
 
     IRModel='default'
-    outf = open(outfn, 'a+')
     data = urllib2.urlopen(inurl)
     # if you're using python 3, you should use
     #data = urllib.request.urlopen(inurl)
@@ -55,4 +55,4 @@ for string in content:
     for doc in docs:
         outf.write(qid + ' ' + 'Q0' + ' ' + str(doc['id']) + ' ' + str(rank) + ' ' + str(doc['score']) + ' ' + IRModel + '\n')
         rank += 1
-    outf.close()
+outf.close()
