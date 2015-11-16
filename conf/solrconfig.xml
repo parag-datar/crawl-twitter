@@ -792,7 +792,7 @@
       <str name="qf">tweet_hashtags^2 text_en^2 text_ru^2 text_de^2 _text_</str>
       <str name="pf">text_en^2 text_ru^2 text_de^2 _text_</str>
       <str name="fl">id,score</str>
-      <!--str name="mm">3 &lt; -25% 10 &lt; -3\n", " \n-25%\n ", " \n3\n</str-->
+      <str name="mm">1&lt;1 2&lt;2 3&lt;2 4&lt;3 5&lt;3 6&lt;4</str>
       <str name="q.alt">*:*</str>
     </lst>
     <!-- In addition to defaults, "appends" params can be specified
