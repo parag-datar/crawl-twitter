@@ -1,0 +1,9 @@
+python json_to_trec.py
+rm -rf $1.txt
+echo "-----------------------------All-----------------------------" >> $1.txt
+grep inurl json_to_trec.py |head -n 1 >> $1.txt 
+./trec_eval -q  qrel.txt output.txt >> $1.txt
+echo "----------------------------ndcg-----------------------------" >> $1.txt
+./trec_eval -q -m ndcg -M 1000 qrel.txt output.txt >> $1.txt
+echo "-----------------------------f05-----------------------------" >> $1.txt
+./trec_eval -q -m set_F.0.5 -M 1000 qrel.txt output.txt >> $1.txt
